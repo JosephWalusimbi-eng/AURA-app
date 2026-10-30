@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AURA privacy policy</title>
+<meta name="description" content="What data the AURA offline voice assistant stores on your device, what it never sends anywhere, and how to delete it.">
+<link rel="canonical" href="https://josephwalusimbi-eng.github.io/AURA-app/privacy.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<meta name="theme-color" content="#0f1514">
+<style>
+:root{--bg:#fbfbf9;--surface:#fff;--ink:#0f1514;--ink2:#4a5551;--line:#e1e5e2;--accent:#0f7a66;--code:#eef2f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1514;--surface:#161e1c;--ink:#eef2f0;--ink2:#aab6b1;--line:#2a3532;--accent:#86d5c3;--code:#1d2724}}
+:root[data-theme="dark"]{--bg:#0f1514;--surface:#161e1c;--ink:#eef2f0;--ink2:#aab6b1;--line:#2a3532;--accent:#86d5c3;--code:#1d2724}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:46rem;margin:0 auto;padding:1.4rem 1rem 3rem}
+h1{font-size:2rem;margin:.4rem 0 .2rem}
+h2{font-size:1.25rem;margin:2rem 0 .5rem}
+.muted{color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-size:.93rem;background:var(--surface);border:1px solid var(--line)}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--code)}
+.scroll{overflow-x:auto}
+code{background:var(--code);border-radius:5px;padding:.1em .35em;font:.9em ui-monospace,Consolas,monospace}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="./">← AURA</a></p>
+<h1>AURA privacy policy</h1>
+<p class="muted">Last updated 30 October 2026. Applies to the AURA app for Android and Windows.</p>
+
+<h2>In short</h2>
+<p>AURA is built to work offline. By default nothing leaves your device and no audio is kept. There is no account, no advertising and no telemetry. The developer cannot see your reminders, conversations or recordings.</p>
+
+<h2>What AURA stores on your device</h2>
+<div class="scroll"><table>
+<thead><tr><th>Data</th><th>How long</th><th>Your controls</th></tr></thead>
+<tbody>
+<tr><td>Your name, timezone, memory items, tasks, reminders, events and conversations (a local database in the app's folder)</td><td>Until you delete them</td><td>Memory screen (forget an item); Settings → export or delete everything</td></tr>
+<tr><td>Voice recordings of your requests</td><td>Deleted right after transcription, unless you turn on "Keep my voice recordings"</td><td>Settings toggle; recordings that nothing refers to are removed after 24 hours</td></tr>
+<tr><td>Corrections you make to a transcript</td><td>Only if you allow it, and only for the level you choose</td><td>Per-correction choice; Settings → withdraw training consent (deletes them)</td></tr>
+<tr><td>Voice setup: your recordings of the 64 sentences and of "AURA" (optional)</td><td>Until you delete them; asked for consent before recording</td><td>Settings → "Delete my voice setup recordings"</td></tr>
+<tr><td>Your personal speech model, trained on the device from those recordings</td><td>Until you roll it back or wipe the app</td><td>Settings → roll back</td></tr>
+<tr><td>Personal wake-word settings</td><td>Until deleted</td><td>Settings → Wake word; delete all</td></tr>
+</tbody></table></div>
+
+<h2>What AURA never sends</h2>
+<p>Your recordings, transcripts, memory, reminders, personal model and voice-setup data are never uploaded by AURA. Speech recognition, training and the optional wake word all run on your device.</p>
+
+<h2>The wake word</h2>
+<p>If you turn on "Listen for AURA" (off by default), the microphone is used continuously on the device. The audio is examined in memory and discarded unless the name "AURA" is heard; it is not stored or sent anywhere. Android shows a notification while it is on.</p>
+
+<h2>Network use</h2>
+<p>AURA needs the network for one thing only: to download a speech model once, from the public Hugging Face repository <code>Walusimbi/whisper-afrispeech-east-africa</code>, when you choose to. The download is checked against a published SHA-256 checksum. Hugging Face receives the usual information any download request carries (such as your IP address). If you point AURA at a local language model on your own machine, that connection is to the address you configure.</p>
+
+<h2>Permissions</h2>
+<ul>
+<li><b>Microphone:</b> to hear your requests, voice setup and the optional wake word.</li>
+<li><b>Notifications and alarms:</b> to alert you when a reminder is due.</li>
+<li><b>Calendar (optional, Android):</b> only if you switch on "Also add events to my phone calendar".</li>
+</ul>
+
+<h2>What is not done yet</h2>
+<p>Being plain about the limits: the on-device database is not yet encrypted at rest (it relies on your device's own storage protection and screen lock); this is planned. On Android, AURA turns off Google's automatic backup and device-to-device transfer of its data, so recordings and memory are not copied off the phone. On Windows, AURA's data folder is covered by whatever backup tools you use yourself. Reminder text may appear in notifications on a locked screen depending on your device settings.</p>
+
+<h2>Children</h2>
+<p>AURA is not directed at children and collects no personal data from anyone, since it collects nothing off the device.</p>
+
+<h2>Changes and contact</h2>
+<p>If this policy changes, the date above changes and the change is visible in the <a href="https://github.com/JosephWalusimbi-eng/AURA-app/commits/main/site/privacy.html">public history of this page</a>. Questions or requests: <a href="https://github.com/JosephWalusimbi-eng/AURA-app/issues">GitHub Issues</a>. The developer is J. Walusimbi, Soroti University, Uganda.</p>
+</div></body>
+</html>

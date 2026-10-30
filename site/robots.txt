@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://josephwalusimbi-eng.github.io/AURA-app/sitemap.xml

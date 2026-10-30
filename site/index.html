@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AURA: offline voice assistant that learns your accent</title>
+<meta name="description" content="AURA is a free, offline personal assistant for Android and Windows. It sets reminders and alarms by voice and learns your own voice and accent on your device. Built for East African English.">
+<link rel="canonical" href="https://josephwalusimbi-eng.github.io/AURA-app/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/icon.png">
+<meta name="theme-color" content="#0f1514">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AURA: offline voice assistant that learns your accent">
+<meta property="og:description" content="Reminders and alarms by voice, fully offline. Learns your voice and accent on your own phone or PC.">
+<meta property="og:url" content="https://josephwalusimbi-eng.github.io/AURA-app/">
+<meta property="og:image" content="https://josephwalusimbi-eng.github.io/AURA-app/img/icon.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AURA","alternateName":"AURA offline voice assistant",
+ "description":"Offline personal assistant that sets reminders and alarms by voice and adapts to the user's own voice and East African accent on the device.",
+ "applicationCategory":"UtilitiesApplication","operatingSystem":"Android, Windows",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "url":"https://josephwalusimbi-eng.github.io/AURA-app/",
+ "downloadUrl":"https://github.com/JosephWalusimbi-eng/AURA-app/releases/latest",
+ "author":{"@type":"Person","name":"Joseph Walusimbi"}}
+</script>
+<style>
+:root{--bg:#fbfbf9;--surface:#fff;--ink:#0f1514;--ink2:#4a5551;--line:#e1e5e2;--accent:#0f7a66;--accent-ink:#fff;--mint:#86d5c3;--code:#eef2f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1514;--surface:#161e1c;--ink:#eef2f0;--ink2:#aab6b1;--line:#2a3532;--accent:#86d5c3;--accent-ink:#0f1514;--code:#1d2724}}
+:root[data-theme="dark"]{--bg:#0f1514;--surface:#161e1c;--ink:#eef2f0;--ink2:#aab6b1;--line:#2a3532;--accent:#86d5c3;--accent-ink:#0f1514;--code:#1d2724}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1rem}
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;flex-wrap:wrap}
+header.top img{width:34px;height:34px;border-radius:8px}
+header.top b{font-size:1.1rem;letter-spacing:.02em}
+header.top nav{margin-left:auto;display:flex;gap:1.1rem;flex-wrap:wrap;font-size:.95rem}
+header.top nav a{color:var(--ink2);text-decoration:none}
+header.top nav a:hover{color:var(--ink)}
+.hero{padding:3.2rem 0 2.2rem}
+.hero h1{font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.15;margin:0 0 1rem;max-width:22ch}
+.hero p.lead{font-size:1.2rem;color:var(--ink2);max-width:40rem;margin:0 0 1.6rem}
+.btns{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.15rem;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.soon{opacity:.65;cursor:default}
+section{padding:2.2rem 0;border-top:1px solid var(--line)}
+section h2{font-size:1.5rem;margin:0 0 .8rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem}
+.card h3{margin:.1rem 0 .4rem;font-size:1.05rem}
+.card p{margin:0;color:var(--ink2);font-size:.97rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;background:var(--code)}
+tr:last-child td{border-bottom:0}
+figure{margin:1rem 0}
+figure img{max-width:min(100%,44rem);height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{color:var(--ink2);font-size:.9rem;margin-top:.4rem}
+code,pre{background:var(--code);border-radius:6px;font:.9em ui-monospace,Consolas,monospace}
+code{padding:.1em .35em}
+pre{padding:.8rem 1rem;overflow:auto}
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--ink2);font-size:.92rem}
+.two{display:grid;gap:1.4rem;grid-template-columns:1fr}
+@media(min-width:48rem){.two{grid-template-columns:1fr 1fr;align-items:start}}
+.phone{max-width:20rem}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <img src="img/icon.png" alt="AURA icon" width="34" height="34"><b>AURA</b>
+  <nav aria-label="Main">
+    <a href="#download">Download</a><a href="#how">How it works</a><a href="#results">Results</a>
+    <a href="#privacy">Privacy</a><a href="#research">Research</a>
+  </nav>
+</div></header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <h1>An assistant that works offline and learns how you speak</h1>
+    <p class="lead">AURA sets reminders and alarms by voice, with no internet and no account. It learns your own voice and accent on your phone or PC, and it answers to its name. Built for East African English, free to use.</p>
+    <div class="btns" id="download">
+      <a class="btn primary" href="https://github.com/JosephWalusimbi-eng/AURA-app/releases/download/v0.1.1/AURA-0.1.1-android-arm64.apk">Download for Android (APK, 34 MB)</a>
+      <a class="btn primary" href="https://github.com/JosephWalusimbi-eng/AURA-app/releases/download/v0.1.1/AURA-0.1.1-windows-x64.zip">Download for Windows (ZIP, 17 MB)</a>
+      <span class="btn soon" aria-disabled="true">Microsoft Store: coming soon</span>
+    </div>
+    <p style="color:var(--ink2);font-size:.92rem;margin-top:.9rem">Version 0.1.1. Android 6 or later (64-bit phones); Windows 10 or later (64-bit). Install steps, checksums and known limits are in the <a href="https://github.com/JosephWalusimbi-eng/AURA-app/releases/tag/v0.1.1">release notes</a>.</p>
+  </div>
+</div>
+
+<section id="what"><div class="wrap">
+  <h2>What it does</h2>
+  <div class="grid">
+    <div class="card"><h3>Talk or type</h3><p>"Remind me to pay school fees on Friday at three p.m." AURA saves it, schedules the alert, and only says "Done" once the system has accepted it.</p></div>
+    <div class="card"><h3>Fully offline</h3><p>Speech recognition runs on the device with whisper.cpp. Memory, reminders and recordings stay on your phone or PC.</p></div>
+    <div class="card"><h3>Learns your voice</h3><p>Read 64 short sentences once, like setting up a fingerprint. Your device trains a small personal model, and it is switched on only if it beats the standard one on sentences it never trained on.</p></div>
+    <div class="card"><h3>Say "AURA"</h3><p>Optional hands-free wake word on Android and Windows. Off by default; audio is checked in memory and dropped unless the name is heard.</p></div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2>How it learns your voice</h2>
+  <div class="two">
+    <div>
+      <ol>
+        <li><b>Read.</b> 52 practice sentences and 12 check sentences about commands, times and numbers, Ugandan names and places, and everyday speech (6 to 8 minutes).</li>
+        <li><b>Learn.</b> The phone trains a personal LoRA adapter on top of an East African accent model, in the background, while charging. On a 2017 phone this takes about 1.5 hours for the tiny model and about 4.5 hours for the base model.</li>
+        <li><b>Check.</b> AURA compares the personal and standard models on your 12 check sentences and keeps the personal one only if it makes fewer mistakes.</li>
+        <li><b>Say "AURA" eight times</b> so the wake word fits your voice.</li>
+      </ol>
+    </div>
+    <figure class="phone"><img src="img/learning-your-voice.png" alt="AURA app screen: Learning your voice, pass 1 of 8, with a Pause button" width="720" height="524">
+      <figcaption>The app learning a voice on a Samsung Galaxy S8+ (2017).</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="results"><div class="wrap">
+  <h2>Results</h2>
+  <p>Measured on the East African subset of AfriSpeech-200 (728 test utterances, 83 unseen speakers, 8 accents) and on a Galaxy S8+. Full tables, intervals and limits are in the paper.</p>
+  <table>
+    <thead><tr><th>What</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Accent adapter, small.en</td><td>Word error rate 0.279 → 0.153 (mean of three seeds), ahead of a full fine-tune of Whisper medium; general English almost unchanged (0.036 → 0.037) when the update is halved before merging.</td></tr>
+      <tr><td>On a 2017 phone</td><td>The adapted tiny model is more accurate than the stock base model (cleaned WER 0.230 against 0.272) at half the latency.</td></tr>
+      <tr><td>Personal adaptation</td><td>Five minutes of a speaker's own speech lowers base.en error by 3.4% on top of the accent model (95% CI below zero), the same with the app's own trainer and decoder; on the stock model it lowers error for all ten held-out speakers (0.329 → 0.202).</td></tr>
+      <tr><td>First enrolment on a real phone</td><td>On a 2017 Galaxy S8+, after one overnight training run with the base model, the personal model made 10 word errors on the 12 check sentences where the standard model made 22 (109 words). One user, so a first result and not a guarantee.</td></tr>
+      <tr><td>Wake word</td><td>0.53 false accepts per hour on held-out accented speech (three-seed mean), 89% recall on unseen voices; the C++ detector matches the reference to 4×10⁻⁷ and uses about 1% of one phone core in a quiet room.</td></tr>
+    </tbody>
+  </table>
+  <figure class="phone"><img src="img/voice-result.png" alt="AURA app screen: AURA now knows your voice. The standard model got 22 of 109 words wrong; the personal model got 10 wrong." width="720" height="684">
+    <figcaption>The result screen after the first on-device enrolment.</figcaption></figure>
+  <figure><img src="img/phone-tradeoff.png" alt="Chart: adapted models are more accurate than stock models at the same latency on the phone" width="1050" height="640">
+    <figcaption>Cleaned WER against decoding time on the phone. Each arrow goes from the stock model to the adapted model of the same size.</figcaption></figure>
+</div></section>
+
+<section id="privacy"><div class="wrap">
+  <h2>Privacy</h2>
+  <p>Nothing leaves your device and no audio is kept unless you turn that on. There is no telemetry and no account. Voice-setup recordings and your personal model stay on the device and can be deleted in Settings. Read the <a href="privacy.html">full privacy policy</a>.</p>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <h2>Research and models</h2>
+  <p>AURA is described in <i>On-Device Adaptation of Whisper to East African Accented English for an Offline Personal Assistant</i> (J. Walusimbi, Department of Electronics and Computer Engineering, Soroti University, 2026).</p>
+  <table>
+    <thead><tr><th>Item</th><th>Where</th><th>Licence</th></tr></thead>
+    <tbody>
+      <tr><td>Applications for Android and Windows</td><td><a href="https://github.com/JosephWalusimbi-eng/AURA-app/releases/latest">Latest release</a></td><td>Free to use</td></tr>
+      <tr><td>Accent adapters, merged GGML models, personal-adaptation experiment</td><td><a href="https://huggingface.co/Walusimbi/whisper-afrispeech-east-africa">Hugging Face: whisper-afrispeech-east-africa</a></td><td>CC BY-NC-SA 4.0</td></tr>
+      <tr><td>Wake-word detector "AURA"</td><td><a href="https://huggingface.co/Walusimbi/aura-wakeword">Hugging Face: aura-wakeword</a></td><td>CC BY-NC-SA 4.0</td></tr>
+    </tbody>
+  </table>
+  <p>The models are adaptations of <a href="https://huggingface.co/datasets/intronhealth/afrispeech-200">AfriSpeech-200</a> and are free for non-commercial use only. The app is free. Source code is available from the author on request.</p>
+  <pre>@misc{walusimbi2026aura,
+  title  = {On-Device Adaptation of Whisper to East African
+            Accented English for an Offline Personal Assistant},
+  author = {Walusimbi, Joseph},
+  year   = {2026},
+  url    = {https://josephwalusimbi-eng.github.io/AURA-app/}
+}</pre>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  AURA is developed at Soroti University, Uganda. Report problems or ask questions on <a href="https://github.com/JosephWalusimbi-eng/AURA-app/issues">GitHub Issues</a>.
+  <br>The app is free to use. Models: CC BY-NC-SA 4.0 (non-commercial). See <a href="https://github.com/JosephWalusimbi-eng/AURA-app/blob/main/NOTICES.md">third-party notices</a>.
+</div></footer>
+</body>
+</html>
